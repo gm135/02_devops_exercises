@@ -1,0 +1,19 @@
+
+name: CI-auto_maerge
+on:
+  push:
+    branches: [ develop ]
+jobs:
+  build:
+    name: test action
+    runs-on: Windows Server
+    steps:
+      # チェックアウト
+      - name: message_start
+        run: echo "チェックアウト開始"
+      - uses: actions/checkout@v2
+      
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo deploy my project.
