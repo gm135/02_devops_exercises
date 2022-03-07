@@ -4,9 +4,14 @@ on:
   branches: [ develop ]
 jobs:
  build:
+   # ソースコードを進化する
    runs-on: ubuntu-latest
    steps:
    - uses: actions/checkout@v2
    - name: Run a one-line script
-
+   
+   # 失敗した際にエラーログを確認したい（未確認）
+   - name: view laravel.log
+     run: cat storage/logs/laravel.log
+     if: ${{ failure() }}
 
